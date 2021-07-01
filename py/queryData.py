@@ -9,7 +9,7 @@ warnings.filterwarnings("ignore")
 
 def queryOdps_HoursRain(start_time, end_time):
     sql = f'select * from sgzx_data_center.sqxj_hj_biz_067_qx_skmyl_valid_old where city = "衢州" ' \
-          f'and observtimes >= {f"{start_time}"} and observtimes < {f"{end_time}"};'
+          f'and observtimes >= \"{start_time}\" and observtimes < \"{end_time}\";'
     reader = odpsCli.execute_sql(sql).open_reader()
     df = reader.to_pandas()
     return df
@@ -17,7 +17,7 @@ def queryOdps_HoursRain(start_time, end_time):
 
 def queryOdps_ReportRain(start_time, end_time):
     sql = f'select * from sgzx_data_center.sqxj_hj_biz_067_qx_24xsljmyl_valid_old where city = "衢州市" ' \
-          f'and reporttimes >= {f"{start_time}"} and reporttimes < {f"{end_time}"};'
+          f'and reporttimes >= \"{start_time}\" and reporttimes < \"{end_time}\";'
     reader = odpsCli.execute_sql(sql).open_reader()
     df = reader.to_pandas()
     return df
