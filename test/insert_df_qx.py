@@ -18,8 +18,10 @@ code_list = df['hash_unique'].drop_duplicates().to_list()
 print(code_list)
 for code in code_list:
     dfi = df[df['hash_unique'] == code]
+    print(dfi)
     dfi = dfi.reset_index(drop=True)
+    print(dfi)
     dfi = dfi.head(1)
     print(dfi)
-    mysqlCli.insert_df(table='sqxj_hj_biz_067_qx_skmyl_valid_old', df=dfi)
+    # mysqlCli.insert_df(table='sqxj_hj_biz_067_qx_skmyl_valid_old', df=dfi)
     time.sleep(5)
